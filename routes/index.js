@@ -5,7 +5,7 @@ var base = new Airtable({apiKey: 'keyjoomvCUbUOZIwz'}).base('appFUe5qse4xBUmuA')
 
 base('players').select({
     // Selecting the first 3 records in Grid view:
-    maxRecords: 3,
+    maxRecords: 6,
     view: "Grid view"
 }).eachPage(function page(records, fetchNextPage) {
     // This function (`page`) will get called for each page of records.
