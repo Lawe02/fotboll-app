@@ -24,7 +24,7 @@ base('players').select({
 });
 
 router.get('/', (req, res) => {
-    res.send('Hello from index');
+    res.sendFile('../public/index.html');
 });
 
 module.exports = router; 
