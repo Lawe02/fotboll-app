@@ -14,5 +14,4 @@ myFunction()
     lst.textContent = `id: ${row.record.id} name: ${row.record.fields.Name}`;
     document.getElementById('test').appendChild(lst);
     })
-
 });
