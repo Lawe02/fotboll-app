@@ -1,7 +1,32 @@
 const express = require('express');
 const router = express.Router();
 var Airtable = require('airtable');
+const { format } = require('express/lib/response');
 var base = new Airtable({apiKey: 'keyjoomvCUbUOZIwz'}).base('appFUe5qse4xBUmuA');
+
+router.post('/', (req, res) => {
+    
+    base('players').update([
+        {
+          "id": req.body.id,
+          "fields": {
+            "Name": req.body.name,
+            "games": req.body.games,
+            "assists": req.body.assists,
+            "position": req.body.position,
+            "Goals": req.body.goals
+          }
+        },
+      ], function(err, records) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+        records.forEach(function(record) {
+          console.log(record.get('Name'));
+        });
+      });
+})
 
 
 router.get('/', (req, res) => {

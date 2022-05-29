@@ -10,8 +10,8 @@ myFunction()
 .then(data => {
     
     data.forEach((row) => {
-    const lst = document.createElement('p');
-    lst.textContent = row.record.fields.position;
+    const lst = document.createElement('li');
+    lst.textContent = `id: ${row.record.id} name: ${row.record.fields.Name}`;
     document.getElementById('test').appendChild(lst);
     })
 
