@@ -26,7 +26,30 @@ router.post('/', (req, res) => {
           console.log(record.get('Name'));
         });
       });
-})
+});
+
+router.post('/add', (req, res) => {
+
+    base('players').create([
+        {
+            "fields": {
+                "Name": req.body.name,
+                "games": req.body.games,
+                "assists": req.body.assists,
+                "position": req.body.position,
+                "Goals": req.body.goals
+            }
+        }
+    ], function(err, records){
+        if (err) {
+            console.error(err);
+            return;
+        }
+        records.forEach(function (record) {
+            console.log(record.getId());
+        });
+    });
+});
 
 
 router.get('/', (req, res) => {
@@ -36,7 +59,7 @@ router.get('/', (req, res) => {
 
     base('players').select({
         // Selecting the first 3 records in Grid view:
-        maxRecords: 6,
+        maxRecords: 20,
         view: "Grid view",
         fields: [
             "Name",
