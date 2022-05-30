@@ -17,8 +17,9 @@
         <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
         <button class="w3-button w3-block w3-black" id="btn" type="button" class="btn btn-warning col-12">Edit</button>
         <button class="w3-button w3-block w3-green" id="btn2" type="button" class="btn btn-warning col-12">Add</button>
+        <button class="w3-button w3-block w3-red" id="btn3" type="button" class="btn btn-warning col-12">Delete</button>
     <div id="form">
-        <form action="/data" method="post" action="">
+        <form action="/data/edit" method="post" action="">
             <input class="w3-input" type="text" id="name" name="name" placeholder="name">
             <input class="w3-input" type="text" id="id" name="id">
             <input class="w3-input" type="number" id="games" name="games" placeholder="games">
@@ -38,6 +39,12 @@
             <button type="submit">Submit</button>
         </form>   
     </div>
+    <div id="form3">
+        <form action="/data/del" method="post" action="">
+            <input class="w3-input" type="text" id="id" name="id" placeholder="id">
+            <button type="submit">Submit</button>
+        </form>   
+    </div>
       </div>
       
       <!-- Page Content -->
@@ -47,16 +54,8 @@
           <h1>My Page</h1>
         </div>
       </div>
-      
-      <script>
-      function w3_open() {
-        document.getElementById("mySidebar").style.display = "block";
-      }
-      function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-      }
-      </script>
           <script>
+            $("#form3").hide();
             $("#form2").hide();
             $("#form").hide();
             $(document).ready(function(){
@@ -65,6 +64,9 @@
               });
               $("#btn2").click(function(){
                   $("#form2").toggle();
+              });
+              $("#btn3").click(function(){
+                  $("#form3").toggle();
               });
             });
             </script>

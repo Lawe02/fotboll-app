@@ -4,7 +4,7 @@ var Airtable = require('airtable');
 const { format } = require('express/lib/response');
 var base = new Airtable({apiKey: 'keyjoomvCUbUOZIwz'}).base('appFUe5qse4xBUmuA');
 
-router.post('/', (req, res) => {
+router.post('/edit', (req, res) => {
     
     base('players').update([
         {
@@ -51,6 +51,16 @@ router.post('/add', (req, res) => {
     });
 });
 
+router.post('/del', (req, res) => {
+
+    base('players').destroy([req.body.id], function(err, deletedRecords){
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log('Deleted', deletedRecords.length, 'records');
+    });
+})
 
 router.get('/', (req, res) => {
     // res.send('Hello from data');
