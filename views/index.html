@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/index.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+  <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large"
+    onclick="w3_close()">Close &times;</button>
+    <div id="form">
+        <form action="/data/login" method="post" action="">
+            <input class="w3-input" type="text" id="name" name="Username" placeholder="Username">
+            <input class="w3-input" type="text" id="id" name="Password" placeholder="Password">
+            <button type="submit" class="w3-button w3-block w3-red" id="btn3" type="button" class="btn btn-warning col-12">Log in</button>
+        </form>   
+    </div>
+  </div>
+  
+  <div id="main">
+  
+  <div class="w3-teal">
+    <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+    <div class="w3-container">
+      <h1>My Page</h1>
+    </div>
+    <table id="table" class="w3-table-all">
+      <tr class="w3-red">
+        <th>Namn</th>
+        <th data-column="Goals" data-order="desc" id="mål">Mål &#9650</th>
+        <th data-column="assists" data-order="desc" id="ass">Assist &#9650</th>
+        <th data-column="games" data-order="desc" id="games">Matcher &#9650</th>
+      </tr>
+      <tbody id="ulRecords"></tbody>
+    </table>
+  </div>
+
+  </div>
+  
+  <script>
+  function w3_open() {
+    document.getElementById("main").style.marginLeft = "25%";
+    document.getElementById("mySidebar").style.width = "25%";
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("openNav").style.display = 'none';
+  }
+  function w3_close() {
+    document.getElementById("main").style.marginLeft = "0%";
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("openNav").style.display = "inline-block";
+  }
+  </script>
+    <script>
+    async function myFunction() {
+    let response = await fetch('/data');
+    if (!response.ok){
+        throw new Error(response.status);
+    }
+    const data = await response.json()
+    return data;
+}
+    myFunction()
+    .then(data => {
+
+    function buildTable(){
+        var table = document.getElementById('ulRecords');
+        table.innerHTML = '';
+        data.forEach((element) =>{
+            var row = `<tr>
+                          <td>${element.record.fields.Name}</td>
+                          <td>${element.record.fields.Goals}</td>
+                          <td>${element.record.fields.assists}</td>
+                          <td>${element.record.fields.games}</td>
+                      </tr>`
+        table.innerHTML += row;
+        });
+        }
+        buildTable();
+        $('th').on('click', function(){
+            var column = $(this).data('column');
+            var order = $(this).data('order');
+            var text = $(this).html();
+            text = text.substring(0, text.length -1)
+
+            console.log('Column was clicked', column, order);
+
+            if(order == 'desc'){
+                $(this).data('order', "asc")
+                data = data.sort((a,b) => a[column] > b[column] ? 1 :
+                -1)
+                text += '&#9660'
+            }else{
+                $(this).data('order', "desc")
+                data = data.sort((a,b) => a[column] < b[column] ? 1 :
+                -1)
+                text += '&#9650'
+            }
+            $(this).html(text);
+            buildTable();
+        })
+    });
+
+    </script>
+    <style>
+      td {
+        color: black;
+      }
+    </style>
+</body>
+</html>

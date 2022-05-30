@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 var Airtable = require('airtable');
-const { format } = require('express/lib/response');
+const { format, json } = require('express/lib/response');
 var base = new Airtable({apiKey: 'keyjoomvCUbUOZIwz'}).base('appFUe5qse4xBUmuA');
 
 router.post('/edit', (req, res) => {
@@ -60,7 +60,7 @@ router.post('/del', (req, res) => {
         }
         console.log('Deleted', deletedRecords.length, 'records');
     });
-})
+}),
 
 router.get('/', (req, res) => {
     // res.send('Hello from data');
