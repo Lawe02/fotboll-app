@@ -99,28 +99,13 @@ router.get('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-    
-  
-    // base('login').select().eachPage(function page(records, fetchNextPage) {
-    //     // This function (`page`) will get called for each page of records.
-    //     records.forEach(record => {
-    //                 if (req.body.Username == record.fields.Username && req.body.Password == record.fields.Password) {
-        
-    //                      res.sendFile()
-                
-    
-    //     // To fetch the next page of records, call `fetchNextPage`.
-    //     // If there are more records, `page` will get called again.
-    //     // If there are no more records, `done` will get called.
-    //     fetchNextPage();
-    
-    // }, function done(err) {
-    //     if (err) { console.error(err); return; }
-    // });
+
     base('login').select().eachPage(page = (records, fetchNextPage) => {
         records.forEach(record => {
             if (req.body.Username == record.fields.Username && req.body.Password == record.fields.Password) { // If the users email exists in Airtable
-                res.sendFile('C:/Users/Lawe Zangena/Prak/views/admin.html')
+                 res.sendFile('C:/Users/Lawe Zangena/Prak/private/admin.html')
+            }else{
+                res.sendFile('C:/Users/Lawe Zangena/Prak/public/index.html')
             }
         });
         try {
