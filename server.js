@@ -18,3 +18,5 @@ app.use('/data', dataRouter);
 app.listen(port);
 
 console.log('Server up and running, listning on port' + port);
+
+module.exports = app;

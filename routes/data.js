@@ -98,30 +98,6 @@ router.get('/', (req, res) => {
     
 });
 
-router.post('/login', (req, res) => {
-
-    base('login').select().eachPage(page = (records, fetchNextPage) => {
-        records.forEach(record => {
-            if (req.body.Username == record.fields.Username && req.body.Password == record.fields.Password) { // If the users email exists in Airtable
-                 res.sendFile('C:/Users/Lawe Zangena/Prak/private/admin.html')
-            }else{
-                res.sendFile('C:/Users/Lawe Zangena/Prak/public/index.html')
-            }
-        });
-        try {
-            fetchNextPage();
-
-        } catch (error) {
-            console.log(error)
-        }
-    },
-    done = (err) => {
-        if (err) {
-            console.error(err);
-            return;
-        }
-    });
-})
 
 
 module.exports = router;
