@@ -12,41 +12,43 @@
     <title>Document</title>
 </head>
 <body>
-   
-    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+        <button class="w3-bar-item w3-button w3-large"
+        onclick="w3_close()">Close &times;</button>
         <button class="w3-button w3-block w3-black" id="btn" type="button" class="btn btn-warning col-12">Edit</button>
         <button class="w3-button w3-block w3-green" id="btn2" type="button" class="btn btn-warning col-12">Add</button>
         <button class="w3-button w3-block w3-red" id="btn3" type="button" class="btn btn-warning col-12">Delete</button>
-    <div id="form">
-        <form action="/data/edit" method="post" action="">
-            <input class="w3-input" type="text" id="name" name="name" placeholder="name">
-            <input class="w3-input" type="text" id="id" name="id">
-            <input class="w3-input" type="number" id="games" name="games" placeholder="games">
-            <input class="w3-input" type="number" id="assists" name="assists" placeholder="assists">
-            <input class="w3-input" type="text" id="position" name="position" placeholder="position">
-            <input class="w3-input" type="number" id="goals" name="goals" placeholder="goals">
-            <button type="submit">Submit</button>
-        </form>   
-    </div>
-    <div id="form2">
-        <form action="/data/add" method="post" action="">
-            <input class="w3-input" type="text" id="name" name="name" placeholder="name">
-            <input class="w3-input" type="number" id="games" name="games" placeholder="games">
-            <input class="w3-input" type="number" id="assists" name="assists" placeholder="assists">
-            <input class="w3-input" type="text" id="position" name="position" placeholder="position">
-            <input class="w3-input" type="number" id="goals" name="goals" placeholder="goals">
-            <button type="submit">Submit</button>
-        </form>   
-    </div>
-    <div id="form3">
-        <form action="/data/del" method="post" action="">
-            <input class="w3-input" type="text" id="id" name="id" placeholder="id">
-            <button type="submit">Submit</button>
-        </form>   
-    </div>
+        <div id="form">
+            <form action="/data/edit" method="post">
+                <input class="w3-input" type="text" id="name" name="name" placeholder="name">
+                <input class="w3-input" type="text" id="id" name="id">
+                <input class="w3-input" type="number" id="games" name="games" placeholder="games">
+                <input class="w3-input" type="number" id="assists" name="assists" placeholder="assists">
+                <input class="w3-input" type="text" id="position" name="position" placeholder="position">
+                <input class="w3-input" type="number" id="goals" name="goals" placeholder="goals">
+                <button type="submit">Submit</button>
+            </form>   
+        </div>
+        <div id="form2">
+            <form action="/data/add" method="post" action="">
+                <input class="w3-input" type="text" id="name" name="name" placeholder="name">
+                <input class="w3-input" type="number" id="games" name="games" placeholder="games">
+                <input class="w3-input" type="number" id="assists" name="assists" placeholder="assists">
+                <input class="w3-input" type="text" id="position" name="position" placeholder="position">
+                <input class="w3-input" type="number" id="goals" name="goals" placeholder="goals">
+                <button type="submit">Submit</button>
+            </form>   
+        </div>
+        <div id="form3">
+            <form action="/data/del" method="post" action="">
+                <input class="w3-input" type="text" id="id" name="id" placeholder="id">
+                <button type="submit">Submit</button>
+            </form>   
+        </div>
       </div>
-      
+       
+   
+      <div id="main">
       <!-- Page Content -->
       <div class="w3-teal">
         <button class="w3-button w3-teal w3-xlarge" onclick="w3_open();">☰</button>
@@ -69,11 +71,9 @@
                   $("#form3").toggle();
               });
             });
-            </script>
-    <ul id="test"></ul>
 
-</body>
-<script>
-    
 </script>
+    <ul id="test"></ul>
+</div>
+</body>
 </html>
