@@ -14,7 +14,20 @@ myFunction()
     lst.className = 'w3-panel w3-round w3-light-blue w3-center w3-col m8 w3-padding-24';
     lst.textContent = `id: ${row.record.id} name: ${row.record.fields.Name} goals: ${row.record.fields.Goals} assists: ${row.record.fields.assists} games: ${row.record.fields.games}`;
     document.getElementById('test').appendChild(lst);
-    })
+    });
+
+    function createOption(){
+      var options = document.getElementById('håt');
+      options.innerHTML = '';
+      data.forEach((element) => {
+        var option = `
+                      <option value="${element.record.id}">${element.record.fields.Name}</option>
+                    `
+          options.innerHTML += option;
+          });
+        }
+        createOption();
+            
 });
 
 function w3_open() {
@@ -22,7 +35,7 @@ function w3_open() {
   document.getElementById("mySidebar").style.width = "35%";
   document.getElementById("mySidebar").style.display = "block";
   document.getElementById("openNav").style.display = 'none';
-}
+}         
 function w3_close() {
   document.getElementById("main").style.marginLeft = "0%";
   document.getElementById("mySidebar").style.display = "none";

@@ -23,13 +23,7 @@ return data;
       });
       }
       buildTable();
-
-function createOption(){
-  var option = documnet.getELementById('id');
-  option.innerHTML = '';
-}
-      
-  });
+      });
    
 function w3_open() {
     document.getElementById("main").style.marginLeft = "25%";
