@@ -62,7 +62,7 @@ router.post('/del', (req, res) => {
         console.log('Deleted', deletedRecords.length, 'records');
     });
     res.sendFile('C:/Users/Lawe Zangena/Prak/private/admin.html');
-}),
+});
 
 router.get('/', (req, res) => {
     // res.send('Hello from data');

@@ -10,15 +10,16 @@ myFunction()
 .then(data => {
     
     data.forEach((row) => {
-    const lst = document.createElement('li');
-    lst.textContent = `id: ${row.record.id} name: ${row.record.fields.Name}`;
+    const lst = document.createElement('div');
+    lst.className = 'w3-panel w3-round w3-light-blue w3-center w3-col m8 w3-padding-24';
+    lst.textContent = `id: ${row.record.id} name: ${row.record.fields.Name} goals: ${row.record.fields.Goals} assists: ${row.record.fields.assists} games: ${row.record.fields.games}`;
     document.getElementById('test').appendChild(lst);
     })
 });
 
 function w3_open() {
-  document.getElementById("main").style.marginLeft = "30%";
-  document.getElementById("mySidebar").style.width = "30%";
+  document.getElementById("main").style.marginLeft = "35%";
+  document.getElementById("mySidebar").style.width = "35%";
   document.getElementById("mySidebar").style.display = "block";
   document.getElementById("openNav").style.display = 'none';
 }

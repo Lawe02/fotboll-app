@@ -22,7 +22,12 @@ return data;
       table.innerHTML += row;
       });
       }
-      buildTable();     
+      buildTable();
+
+function createOption(){
+  var option = documnet.getELementById('id');
+  option.innerHTML = '';
+}
       
   });
    
@@ -38,7 +43,7 @@ function w3_open() {
     document.getElementById("openNav").style.display = "inline-block";
   }
 
-  function sourtBale(n) {
+  function sourtBalef(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("table");
     switching = true;
