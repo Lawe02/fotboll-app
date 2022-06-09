@@ -15,6 +15,17 @@
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
         <button class="w3-bar-item w3-button w3-large"
         onclick="w3_close()">Stäng &times;</button>
+        <button class="accordion w3-button w3-block w3-green" id="btn2" type="button" class="btn btn-warning col-12">Lägg till spelare</button>
+        <div id="form2" class="panel">
+            <form action="/data/add" method="post">
+                <input class="w3-input" type="text" id="name" name="name" placeholder="Namn">
+                <input class="w3-input" type="number" id="games" name="games" placeholder="Matcher">
+                <input class="w3-input" type="number" id="assists" name="assists" placeholder="Framspelningar">
+                <input class="w3-input" type="text" id="position" name="position" placeholder="Position">
+                <input class="w3-input" type="number" id="goals" name="goals" placeholder="Mål">
+                <button type="submit" class="w3-btn w3-black w3-hover-green">Verkställ</button>
+            </form>   
+        </div>
         <button class="accordion w3-button w3-block w3-yellow" id="btn" type="button" class="btn btn-warning col-12">Uppdatera Spelare</button>
         <div id="form" class="panel">
             <form action="/data/edit" method="post">
@@ -27,17 +38,6 @@
                 <input class="w3-input" type="text" id="position" name="position" placeholder="Position">
                 <input class="w3-input" type="number" id="goals" name="goals" placeholder="Mål">
                 <button type="submit" class="w3-btn w3-black w3-hover-yellow">Verkställ</button>
-            </form>   
-        </div>
-        <button class="accordion w3-button w3-block w3-green" id="btn2" type="button" class="btn btn-warning col-12">Lägg till spelare</button>
-        <div id="form2" class="panel">
-            <form action="/data/add" method="post">
-                <input class="w3-input" type="text" id="name" name="name" placeholder="Namn">
-                <input class="w3-input" type="number" id="games" name="games" placeholder="Matcher">
-                <input class="w3-input" type="number" id="assists" name="assists" placeholder="Framspelningar">
-                <input class="w3-input" type="text" id="position" name="position" placeholder="Position">
-                <input class="w3-input" type="number" id="goals" name="goals" placeholder="Mål">
-                <button type="submit" class="w3-btn w3-black w3-hover-green">Verkställ</button>
             </form>   
         </div>
         <button class="accordion w3-button w3-block w3-red" id="btn3" type="button" class="btn btn-warning col-12">Ta bort spelare</button>
