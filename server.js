@@ -1,8 +1,8 @@
 'use strict'
 
-const { urlencoded } = require('body-parser');
+require('body-parser');
 const express = require('express');
-const router = require ('./routes');
+require('./routes');
 const app = express();
 const port = 8020;
 const indexRouter = require('./routes/index');
