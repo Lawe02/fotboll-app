@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 var Airtable = require('airtable');
 var hash = require('object-hash');
-var base = new Airtable({apiKey: 'keyjoomvCUbUOZIwz'}).base('appFUe5qse4xBUmuA');
+require('dotenv').config();
+var base = new Airtable({apiKey: process.env.api_KEY}).base(process.env.base);
 
 
 router.get('/', (req, res) => {
@@ -22,8 +23,7 @@ router.post('/login', (req, res) => {
             if(hashPassword == pass) 
             { 
                 res.sendFile('C:/Users/Lawe Zangena/Prak/private/admin.html');
-            }
-            else{
+            }else{
                 res.sendFile('C:/Users/Lawe Zangena/Prak/public/index.html');    
             }
         });

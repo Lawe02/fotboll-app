@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 var Airtable = require('airtable');
-var base = new Airtable({apiKey: 'keyjoomvCUbUOZIwz'}).base('appFUe5qse4xBUmuA');
+require('dotenv').config();
+var base = new Airtable({apiKey: process.env.api_KEY}).base(process.env.base);
 
 router.post('/edit', (req, res) => {
     
