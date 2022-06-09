@@ -15,10 +15,8 @@
     <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
         <button class="w3-bar-item w3-button w3-large"
         onclick="w3_close()">Close &times;</button>
-        <button class="w3-button w3-block w3-black" id="btn" type="button" class="btn btn-warning col-12">Edit</button>
-        <button class="w3-button w3-block w3-green" id="btn2" type="button" class="btn btn-warning col-12">Add</button>
-        <button class="w3-button w3-block w3-red" id="btn3" type="button" class="btn btn-warning col-12">Delete</button>
-        <div id="form">
+        <button class="accordion w3-button w3-block w3-black" id="btn" type="button" class="btn btn-warning col-12">Edit</button>
+        <div id="form" class="panel">
             <form action="/data/edit" method="post">
                 <input class="w3-input" type="text" id="name" name="name" placeholder="name">
                 <select class="w3-select w3-border" name="id" id="alt">
@@ -30,7 +28,8 @@
                 <button type="submit">Submit</button>
             </form>   
         </div>
-        <div id="form2">
+        <button class="accordion w3-button w3-block w3-green" id="btn2" type="button" class="btn btn-warning col-12">Add</button>
+        <div id="form2" class="panel">
             <form action="/data/add" method="post">
                 <input class="w3-input" type="text" id="name" name="name" placeholder="name">
                 <input class="w3-input" type="number" id="games" name="games" placeholder="games">
@@ -40,7 +39,8 @@
                 <button type="submit">Submit</button>
             </form>   
         </div>
-        <div id="form3">
+        <button class="accordion w3-button w3-block w3-red" id="btn3" type="button" class="btn btn-warning col-12">Delete</button>
+        <div id="form3" class="panel">
             <form action="/data/del" method="post" action="">
                 <select class="w3-select w3-border" name="id" id="alt2">
                   </select>
@@ -58,26 +58,31 @@
           <h1>My Page</h1>
         </div>
       </div>
-          <script>
-            $("#form3").hide();
-            $("#form2").hide();
-            $("#form").hide();
-            $(document).ready(function(){
-              $("#btn").click(function(){
-                $("#form").toggle();
-              });
-              $("#btn2").click(function(){
-                  $("#form2").toggle();
-              });
-              $("#btn3").click(function(){
-                  $("#form3").toggle();
-              });
-            });
-</script>
+
 <div class="container" style="margin-left: 20%; margin-right: 30%;">
     <div id="test"></div>
 </div>
 </div>
-
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+    </script>
+    <style>
+        .panel {
+            display: none;
+        }
+    </style>
 </body>
 </html>
