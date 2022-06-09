@@ -10,12 +10,14 @@ router.get('/', (req, res) => {
     res.render('C:/Users/Lawe Zangena/Prak/public') 
 });
 
+router.get('/jdsfjksd', (req, res) => {
+    res.sendFile('C:/Users/Lawe Zangena/Prak/private/admin.html') 
+});
+
 router.post('/login', (req, res) => {
 
     var password = req.body.Password;
     const hashPassword = hash.MD5(password);
-    var str = 'C:/Users/Lawe Zangena/Prak/private/admin.html';
-    str = str.replace("/app/", "")
     
     base('login').select().eachPage(page = (records, fetchNextPage) => {
         records.forEach(record => {
@@ -24,9 +26,9 @@ router.post('/login', (req, res) => {
             if(req.body.Username == record.fields.Username) 
             if(hashPassword == pass) 
             { 
-                res.sendFile(str);
+                res.redirect('/jdsfjksd');
             }else{
-                res.sendFile('C:/Users/Lawe Zangena/Prak/public/index.html');    
+                res.redirect('/');    
             }
         });
         try {
