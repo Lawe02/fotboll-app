@@ -26,7 +26,7 @@ router.post('/edit', (req, res) => {
           console.log(record.get('Name'));
         });
       });
-      res.sendFile('C:/Users/Lawe Zangena/Prak/private/admin.html');
+      res.sendFile(__dirname+'/admin.html');
 });
 
 router.post('/add', (req, res) => {
@@ -50,7 +50,7 @@ router.post('/add', (req, res) => {
             console.log(record.getId());
         });
     });
-    res.sendFile('C:/Users/Lawe Zangena/Prak/private/admin.html');
+    res.sendFile(__dirname+'/admin.html');
 });
 
 router.post('/del', (req, res) => {
@@ -62,7 +62,7 @@ router.post('/del', (req, res) => {
         }
         console.log('Deleted', deletedRecords.length, 'records');
     });
-    res.sendFile('C:/Users/Lawe Zangena/Prak/private/admin.html');
+    res.sendFile(__dirname+'/admin.html');
 });
 
 router.get('/', (req, res) => {

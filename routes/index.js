@@ -10,10 +10,6 @@ router.get('/', (req, res) => {
     res.render('C:/Users/Lawe Zangena/Prak/public') 
 });
 
-router.get('/jdsfjksd', (req, res) => {
-    res.sendFile('C:/Users/Lawe Zangena/Prak/private/admin.html') 
-});
-
 router.post('/login', (req, res) => {
 
     var password = req.body.Password;
@@ -26,9 +22,9 @@ router.post('/login', (req, res) => {
             if(req.body.Username == record.fields.Username) 
             if(hashPassword == pass) 
             { 
-                res.redirect('/jdsfjksd');
+                res.sendFile(__dirname+'/admin.html');
             }else{
-                res.redirect('/');    
+                res.sendFile('C:/Users/Lawe Zangena/Prak/public/index.html');    
             }
         });
         try {
