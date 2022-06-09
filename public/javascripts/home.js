@@ -37,7 +37,7 @@ function w3_open() {
     document.getElementById("openNav").style.display = "inline-block";
   }
 
-  function sourtBalef(n) {
+  function sourtBale(n) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("table");
     switching = true;
