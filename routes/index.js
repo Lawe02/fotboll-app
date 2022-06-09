@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 var Airtable = require('airtable');
+var hash = require('object-hash');
 var base = new Airtable({apiKey: 'keyjoomvCUbUOZIwz'}).base('appFUe5qse4xBUmuA');
 
 
@@ -10,10 +11,15 @@ router.get('/', (req, res) => {
 
 router.post('/login', (req, res) => {
 
+    var password = req.body.Password;
+    const hashPassword = hash.MD5(password);
+    
     base('login').select().eachPage(page = (records, fetchNextPage) => {
         records.forEach(record => {
+            var logPass = record.fields.Password;
+            const pass = hash.MD5(logPass);
             if(req.body.Username == record.fields.Username) 
-            if(req.body.Password == record.fields.Password) 
+            if(hashPassword == pass) 
             { 
                 res.sendFile('C:/Users/Lawe Zangena/Prak/private/admin.html');
             }
