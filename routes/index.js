@@ -24,7 +24,7 @@ router.post('/login', (req, res) => {
             { 
                 res.sendFile(__dirname+'/admin.html');
             }else{
-                res.sendFile('C:/Users/Lawe Zangena/Prak/public/index.html');    
+                res.redirect('/');    
             }
         });
         try {
