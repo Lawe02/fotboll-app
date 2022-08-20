@@ -42,12 +42,23 @@ function w3_open() {
     table = document.getElementById("table");
     switching = true;
 
+  function arrow(rrow){
+    var c = table.getElementsByTagName("TH");
+    var h = c[n].innerHTML;
+    var r = h.substring(0, h.length-1);
+    table.getElementsByTagName("TH")[n].innerHTML = `${r} ${rrow}`
+  }
+  arrow('&#x2207'); 
+
+  
     dir = "asc"; 
+
 
     while (switching) {
 
       switching = false;
       rows = table.rows;
+ 
 
       for (i = 1; i < (rows.length - 1); i++) {
 
@@ -55,16 +66,16 @@ function w3_open() {
 
         x = rows[i].getElementsByTagName("TD")[n];
         y = rows[i + 1].getElementsByTagName("TD")[n];
+       
 
         if (dir == "asc") {
           if (Number(x.innerHTML) > Number(y.innerHTML)) {
-
+    
           shouldSwitch = true;
           break;
           }
         } else if (dir == "desc") {
-          if (Number(x.innerHTML) < Number(y.innerHTML)) {
-
+          if (Number(x.innerHTML) < Number(y.innerHTML)) { 
           shouldSwitch = true;
           break;
           }
@@ -74,13 +85,15 @@ function w3_open() {
 
         rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
         switching = true;
-
+        
         switchcount ++;      
       } else {
+        
 
         if (switchcount == 0 && dir == "asc") {
           dir = "desc";
           switching = true;
+          arrow('&#x2206');
         }
       }
     }
