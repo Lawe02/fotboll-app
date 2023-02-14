@@ -38,7 +38,7 @@ function w3_open() {
   }
 
   function sourtBale(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    var rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = document.getElementById("table");
     switching = true;
 
