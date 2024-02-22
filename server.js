@@ -1,5 +1,6 @@
 'use strict'
 
+/*
 require('body-parser');
 const express = require('express');
 require('./routes');
@@ -19,3 +20,4 @@ app.listen(process.env.PORT || 5000);
 console.log('Server up and running, listning on port 5000');
 
 module.exports = app;
+*/
